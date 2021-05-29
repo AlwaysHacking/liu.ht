@@ -31,6 +31,9 @@ const Layout = ({ location, title, children }) => {
             Twitter
           </Link>
           <Link to={`https://weibo.com/${social?.weibo || ``}`}>Weibo</Link>
+          <Link to={`/rss.xml`} external={true}>
+            RSS
+          </Link>
         </div>
       </header>
       <div className="global-wrapper" data-is-root-path={isRootPath}>
