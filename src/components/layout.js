@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import Link from "./link"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
