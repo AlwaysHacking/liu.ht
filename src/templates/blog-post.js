@@ -9,7 +9,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-
+  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `https://liu.ht${location.pathname}`
+  )}`
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -30,6 +32,7 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
       </article>
+      <Link to={discussUrl}>在 Twitter 上讨论</Link>
       <nav className="blog-post-nav">
         <ul
           style={{
