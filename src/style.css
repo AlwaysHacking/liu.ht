@@ -237,21 +237,37 @@ table thead tr th {
 
 a {
   color: var(--color-text);
+  text-decoration: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 75%,
+    #fbf36d 75%,
+    #fbf36d 100%
+  );
 }
 
 a:hover,
 a:focus {
   color: var(--color-primary);
+  text-decoration: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 0%,
+    #fbf36d 0%,
+    #fbf36d 100%
+  );
 }
 
-.global-header a {
+/* .global-header a {
   text-decoration: none;
   color: var(--color-primary);
 }
 
 .global-header a:hover {
   color: var(--color-secondary);
-}
+} */
 
 /* Custom classes */
 
@@ -297,6 +313,10 @@ a:focus {
   font-family: var(--fontFamily-logo);
   text-decoration: none;
   font-size: var(--fontSize-2);
+}
+
+.home {
+  background: none !important;
 }
 
 .bio {

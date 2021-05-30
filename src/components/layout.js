@@ -23,7 +23,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       <header className="global-header">
-        <Link className="logo" to="/">
+        <Link className={`logo ${isRootPath ? "home" : ""}`} to="/">
           {title}
         </Link>
         <div className="bio">
