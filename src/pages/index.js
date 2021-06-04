@@ -30,22 +30,25 @@ const BlogIndex = ({ data, location }) => {
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                <header>
+                <div className="header">
                   <h1>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h1>
                   <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
+                </div>
+                <div className="description">
                   <p
                     dangerouslySetInnerHTML={{
                       __html: post.frontmatter.description || post.excerpt,
                     }}
                     itemProp="description"
                   />
-                </section>
+                  <Link to={post.fields.slug} itemProp="url" className="more">
+                    <small>...</small>
+                  </Link>
+                </div>
               </article>
             </li>
           )

@@ -1,4 +1,5 @@
 import * as React from "react"
+import Emoji from "a11y-react-emoji"
 import { graphql } from "gatsby"
 import Link from "../components/link"
 
@@ -25,14 +26,16 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <small>{post.frontmatter.date}</small>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
       </article>
-      <Link to={discussUrl}>在 Twitter 上讨论</Link>
+      <Link to={discussUrl} className="discuss" type="twitter">
+        <Emoji symbol="🗣" label="discuss" /> {" Twitter 讨论"}
+      </Link>
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -46,14 +49,16 @@ const BlogPostTemplate = ({ data, location }) => {
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                <Emoji symbol="👈" label="previous" />
+                {` ${previous.frontmatter.title}`}
               </Link>
             )}
           </li>
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {`${next.frontmatter.title} `}
+                <Emoji symbol="👉" label="next" />
               </Link>
             )}
           </li>
