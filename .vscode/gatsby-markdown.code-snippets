@@ -1,0 +1,14 @@
+{
+  "NewBlog": {
+    "scope": "markdown",
+    "body": [
+      "---",
+      "title: \"${1:Title}\"",
+      "date: \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND\"",
+      "description: \"${9:Description}\"",
+      "---",
+      ""
+    ],
+    "description": "The beginning of a new blog"
+  }
+}
