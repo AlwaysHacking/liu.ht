@@ -7,7 +7,7 @@ module.exports = {
     description: `Liu Haitian`,
     siteUrl: `https://liu.ht/`,
     social: {
-      twitter: `HaitianLiu`,
+      twitter: `liu_haitian`,
       weibo: `wantedliu`,
     },
   },
@@ -43,7 +43,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          // `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

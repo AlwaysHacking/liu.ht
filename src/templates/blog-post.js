@@ -34,32 +34,23 @@ const BlogPostTemplate = ({ data, location }) => {
       </article>
       <Discuss tweetID={post.frontmatter.tweetID} />
       <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                <Emoji symbol="👈" label="previous" />
-                {`《${previous.frontmatter.title}》`}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {`《${next.frontmatter.title}》`}
-                <Emoji symbol="👉" label="next" />
-              </Link>
-            )}
-          </li>
-        </ul>
+        {previous && (
+          <div className="prev">
+            <Link to={previous.fields.slug} rel="prev">
+              <Emoji symbol="👈" label="previous" />
+              {`《${previous.frontmatter.title}》`}
+            </Link>
+          </div>
+        )}
+
+        {next && (
+          <div className="next">
+            <Link to={next.fields.slug} rel="next">
+              {`《${next.frontmatter.title}》`}
+              <Emoji symbol="👉" label="next" />
+            </Link>
+          </div>
+        )}
       </nav>
     </Layout>
   )

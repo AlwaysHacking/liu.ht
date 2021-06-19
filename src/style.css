@@ -30,11 +30,6 @@
   --fontFamily-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
-    Times, serif;
-  --fontFamily-logo: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-body: var(--fontFamily-body);
@@ -76,6 +71,7 @@
 :after,
 :before {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -311,21 +307,12 @@ a[type="twitter"]:focus {
   );
 }
 
-/* .global-header a {
-  text-decoration: none;
-  color: var(--color-primary);
-}
-
-.global-header a:hover {
-  color: var(--color-secondary);
-} */
-
 /* Custom classes */
 
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-12) 0;
+  padding: var(--spacing-12) var(--spacing-6) var(--spacing-20);
 }
 
 .global-header {
@@ -364,13 +351,18 @@ a[type="twitter"]:focus {
 
 .logo {
   font-weight: var(--fontWeight-bold);
-  font-family: var(--fontFamily-logo);
   text-decoration: none;
   font-size: var(--fontSize-2);
+  user-select: none;
 }
 
 .home {
   background: none !important;
+  color: var(--color-primary);
+}
+
+.home:hover {
+  cursor: default !important;
 }
 
 .header {
@@ -393,6 +385,7 @@ small {
 
 .bio a {
   margin-left: var(--spacing-4);
+  user-select: none;
 }
 
 .blog-post {
@@ -409,11 +402,16 @@ small {
 }
 
 .blog-post-nav {
-  margin-top: var(--spacing-2);
+  margin-top: var(--spacing-12);
 }
 
-.blog-post-nav ul {
-  margin: var(--spacing-0);
+.blog-post-nav .prev {
+  text-align: left;
+}
+
+.blog-post-nav .next {
+  text-align: right;
+  margin-top: var(--spacing-2);
 }
 
 .gatsby-highlight {
@@ -432,8 +430,12 @@ small {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
-  ul,
-  ol {
-    list-style-position: inside;
+
+  .global-header {
+    padding: var(--spacing-8) var(--spacing-6) 0;
+  }
+
+  .global-wrapper {
+    padding-top: var(--spacing-10);
   }
 }
