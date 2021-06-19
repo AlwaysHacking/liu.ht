@@ -3,7 +3,7 @@
   "private": true,
   "description": "Liu Haitian Blog",
   "version": "0.1.0",
-  "author": "Liu Haitian <wantedliu@gmail.com>",
+  "author": "Liu Haitian <liuhaitian@liu.ht>",
   "dependencies": {
     "a11y-react-emoji": "^1.1.3",
     "gatsby": "^3.4.1",
@@ -35,7 +35,8 @@
   "homepage": "https://liu.ht/",
   "keywords": [
     "Liu Haitian",
-    "blog"
+    "blog",
+    "liu.ht"
   ],
   "scripts": {
     "build": "gatsby build",
@@ -43,7 +44,6 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   }
 }
