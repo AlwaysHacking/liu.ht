@@ -171,30 +171,36 @@ p,
 ul li,
 ol li {
   line-height: var(--lineHeight-relaxed);
-  --baseline-multiplier: 0.179;
-  --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-2) var(--spacing-0);
+  margin: var(--spacing-0);
   padding: var(--spacing-0);
+}
+
+p {
+  margin-bottom: var(--spacing-2);
+}
+
+ul li,
+ol li {
+  margin-top: var(--spacing-1);
+  margin-bottom: 0;
+}
+
+ol li {
+  margin-top: var(--spacing-1);
+  margin-bottom: 0;
+}
+
+ol li:last-child {
+  margin-bottom: var(--spacing-1);
 }
 
 ul,
 ol {
   margin: var(--spacing-0);
-  padding-left: 1.2rem;
+  padding-left: var(--spacing-8);
   list-style-position: outside;
   list-style-image: none;
 }
-
-/* {
-  line-height: var(--lineHeight-relaxed);
-  --baseline-multiplier: 0.179;
-  --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-2) var(--spacing-0);
-} */
-
-/* li > p {
-  margin-bottom: calc(var(--spacing-8) / 2);
-} */
 
 li *:last-child {
   margin-bottom: var(--spacing-0);
@@ -319,7 +325,7 @@ a[type="twitter"]:focus {
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-12);
+  padding: var(--spacing-12) 0;
 }
 
 .global-header {
@@ -333,13 +339,16 @@ a[type="twitter"]:focus {
   margin: 0;
 }
 
-.post-list-item {
-  margin-bottom: var(--spacing-8);
-  margin-top: var(--spacing-8);
+.post-list {
+  list-style: none;
 }
 
-.post-list-item p {
-  margin-bottom: var(--spacing-0);
+.post-list-item {
+  margin-bottom: var(--spacing-12);
+}
+
+.post-list-item:first-child {
+  margin-top: 0;
 }
 
 .post-list-item h2 {
@@ -370,6 +379,7 @@ a[type="twitter"]:focus {
 }
 
 .header h1 {
+  margin-top: 0;
   margin-bottom: var(--spacing-2);
 }
 
@@ -393,10 +403,6 @@ small {
   margin-bottom: var(--spacing-4);
 }
 
-.blog-post header h1 {
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-3) var(--spacing-0);
-}
-
 .blog-post header p {
   font-size: var(--fontSize-0);
   font-family: var(--font-heading);
@@ -412,6 +418,11 @@ small {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.discuss {
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
 }
 
 /* Media queries */

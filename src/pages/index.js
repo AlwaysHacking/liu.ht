@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Link from "../components/link"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Discuss from "../components/discuss"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -19,41 +20,34 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="刘海天" />
-      <ol style={{ listStyle: `none` }}>
+      <div className="post-list">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <div className="header">
-                  <h1>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h1>
-                  <small>{post.frontmatter.date}</small>
-                </div>
-                <div className="description">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                  <Link to={post.fields.slug} itemProp="url" className="more">
-                    <small>...</small>
+            <div
+              key={post.fields.slug}
+              className="post-list-item"
+              itemScope
+              itemType="http://schema.org/Article"
+            >
+              <div className="header">
+                <h1>
+                  <Link to={post.fields.slug} itemProp="url">
+                    <span itemProp="headline">{title}</span>
                   </Link>
-                </div>
-              </article>
-            </li>
+                </h1>
+                <small>{post.frontmatter.date}</small>
+              </div>
+              <section
+                dangerouslySetInnerHTML={{ __html: post.html }}
+                itemProp="articleBody"
+              />
+              <Discuss tweetID={post.frontmatter.tweetID} />
+            </div>
           )
         })}
-      </ol>
+      </div>
     </Layout>
   )
 }
@@ -69,14 +63,14 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
-        excerpt
+        html
         fields {
           slug
         }
         frontmatter {
           date(formatString: "YYYY-MM-DD")
           title
-          description
+          tweetID
         }
       }
     }

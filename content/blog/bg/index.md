@@ -2,6 +2,7 @@
 title: "Baillie Gifford 10 问"
 date: "2021-06-09 23:42:19"
 description: "陪跑特斯拉七年，BG 的投资框架是什么？"
+tweetID: "1402667755468312590"
 ---
 
 [Baillie Gifford](https://www.bailliegifford.com/) 是一家由合伙人全资拥有的投资管理公司，于 1908 年在苏格兰爱丁堡成立。

@@ -5,14 +5,13 @@ import Link from "../components/link"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Discuss from "../components/discuss"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://liu.ht${location.pathname}`
-  )}`
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -24,18 +23,16 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        <div className="header">
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <small>{post.frontmatter.date}</small>
-        </header>
+        </div>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
       </article>
-      <Link to={discussUrl} className="discuss" type="twitter">
-        <Emoji symbol="🗣" label="discuss" /> {" Twitter 讨论"}
-      </Link>
+      <Discuss tweetID={post.frontmatter.tweetID} />
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -50,14 +47,14 @@ const BlogPostTemplate = ({ data, location }) => {
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 <Emoji symbol="👈" label="previous" />
-                {` ${previous.frontmatter.title}`}
+                {`《${previous.frontmatter.title}》`}
               </Link>
             )}
           </li>
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {`${next.frontmatter.title} `}
+                {`《${next.frontmatter.title}》`}
                 <Emoji symbol="👉" label="next" />
               </Link>
             )}
@@ -88,7 +85,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
-        description
+        tweetID
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
