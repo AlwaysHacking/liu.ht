@@ -7,7 +7,7 @@ module.exports = {
     description: `Liu Haitian`,
     siteUrl: `https://liu.ht/`,
     social: {
-      twitter: `liu_haitian`,
+      twitter: `liuht_eth`,
       weibo: `wantedliu`,
     },
   },

@@ -4,7 +4,7 @@ import Link from "./link"
 
 const Discuss = ({ tweetID }) => {
   const replyUrl = `https://mobile.twitter.com/intent/tweet?in_reply_to=${tweetID}`
-  const discussionsUrl = `https://mobile.twitter.com/liu_haitian/status/${tweetID}`
+  const discussionsUrl = `https://mobile.twitter.com/liuht_eth/status/${tweetID}`
   return (
     <div className="discuss">
       <Link to={replyUrl} className="discuss-link">
